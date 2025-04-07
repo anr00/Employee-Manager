@@ -57,13 +57,13 @@ namespace Employees.Data
             {
                 connection.Open();
                 string sql = "INSERT INTO employee (first_name, last_name, email, job_title) " +
-                             "VALUES(@first_name, @last_name, @email, @jobtitle)";
+                             "VALUES(@first_name, @last_name, @email, @job_title)";
                 using (NpgsqlCommand command = new NpgsqlCommand(sql, connection))
                 {
                     command.Parameters.AddWithValue("@first_name", employee.FirstName);
                     command.Parameters.AddWithValue("@last_name", employee.LastName);
                     command.Parameters.AddWithValue("@email", employee.Email);
-                    command.Parameters.AddWithValue("@jobtitle", employee.JobTitle);
+                    command.Parameters.AddWithValue("@job_title", employee.JobTitle);
 
                     command.ExecuteNonQuery();
                 }
